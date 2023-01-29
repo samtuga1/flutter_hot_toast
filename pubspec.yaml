@@ -1,6 +1,6 @@
 name: flutter_hot_toast
 description: A very cool and simple toast with animations. This is highly inspired by React Hot Toast.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/samtuga1/flutter_hot_toast
 
 environment:

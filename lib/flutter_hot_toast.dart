@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:lottie/lottie.dart';
+export 'package:loader_overlay/loader_overlay.dart';
 
 enum FlutterHotToastType {
   success,
