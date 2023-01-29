@@ -11,29 +11,94 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# Flutter Hot Toast
+
+A very cool and simple flutter toast that is highly inspired by React Hot Toast
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+![Video preview](https://user-images.githubusercontent.com/79772304/215337480-c5d7fdb1-2962-46f9-acbe-6201d674b10d.gif)
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+First wrap your Material App with `GlobalLoaderOverlay`
+
+```
+Widget build(BuildContext context) {
+    return GlobalLoaderOverlay(
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const Home(),
+      ),
+    );
+  }
+```
+
+---
+
+Now you can call the toast to show in any part of your widget that is being encapsulated in the MaterialApp widget by:
+
+```
+context.loaderOverlay.show(
+            widget: FlutterHotToast.loading(
+              height: 70,
+              width: 280,
+              label: const Text(
+                'loading...😬',
+                style: TextStyle(
+                  fontSize: 30,
+                ),
+              ),
+            ),
+          );
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```
+FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {
+          context.loaderOverlay.show(
+            widget: FlutterHotToast.loading(
+              height: 70,
+              width: 280,
+              label: const Text(
+                'loading...😬',
+                style: TextStyle(
+                  fontSize: 30,
+                ),
+              ),
+            ),
+          );
+          Future.delayed(const Duration(seconds: 2), () {
+            context.loaderOverlay.show(
+              widget: FlutterHotToast.success(
+                context,
+                height: 70,
+                width: 280,
+                label: const Text(
+                  'success ✅',
+                  style: TextStyle(
+                    fontSize: 30,
+                  ),
+                ),
+              ),
+            );
+          });
+        },
+      ),
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+This package uses [lottie](https://pub.dev/packages/lottie), [loader_overlay](https://pub.dev/packages/loader_overlay) and [flutter_animate](https://pub.dev/packages/flutter_animate) under the hood.
+
+You can find the repository link at [github](https://github.com/samtuga1/flutter_hot_toast) to contribute to this project.
+
+---
+
+If you like this project, please follow me on [github](https://github.com/samtuga1)
